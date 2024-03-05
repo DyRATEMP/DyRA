@@ -61,7 +61,6 @@ class DynamicResizer(nn.Module):
         self.base_anchors = torch.tensor(base_anchors).to(self.device) ** 2
         self.coco_bnd = torch.tensor([32., 96.]).to(self.device) ** 2
         self.mapping_ratio = nn.Parameter((self.base_anchors[1::2]).mean() / self.coco_bnd.mean())
-        # self.mapping_ratio = nn.Parameter(torch.tensor([3.2]), requires_grad=False)
         self.anchor_range = [pareto_scale_st, pareto_scale_end]
         
         logger.info("Pareto Scale: {}".format(self.base_anchors[self.anchor_range[0]:self.anchor_range[1]].sqrt().tolist()))
