@@ -7,13 +7,13 @@
 
 | Networks | Baseline AP | AP with DyRA | Weights | 
 |---|---|---|---|
-| RetinaNet (R50)  | 38.7  | 40.1 (+ 1.4%)  |  [link](https://drive.google.com/file/d/18Z-kc65QtU6EG4v4Tmc7c0JzTb1U8axl/view?usp=drive_link) |
-| RetinaNet (R101) |  40.4 | 41.6 (+ 1.2%)  |   |
-| Faster-RCNN (R50)  | 40.2  | 41.2 (+ 1.0%)  |   |
-| Faster-RCNN (R101)  | 42.0  | 42.9 (+ 0.9%)  |   |
-| FCOS (R50)  | 41.0  | 42.5 (+ 1.5%) | [link](https://drive.google.com/file/d/1aGA0eJwNZ0ceVt0UBi-sxkf4oEuwVsEu/view?usp=drive_link)  |
-| FCOS (R101)  | 43.1  | 44.1 (+ 1.0%)  | [link](https://drive.google.com/file/d/1Jy3QZSqmv68brYHWCrx9trsJHtqry2i6/view?usp=drive_link) |
-| DINO (R50)  | 49.2 | 50.5 (+ 1.3%)  |   |
+| RetinaNet (R50)  | 38.7  | 40.1 (+1.4%)  |  [link](https://drive.google.com/file/d/18Z-kc65QtU6EG4v4Tmc7c0JzTb1U8axl/view?usp=drive_link) |
+| RetinaNet (R101) |  40.4 | 41.6 (+1.2%)  |   |
+| Faster-RCNN (R50)  | 40.2  | 41.2 (+1.0%)  |   |
+| Faster-RCNN (R101)  | 42.0  | 42.9 (+0.9%)  |   |
+| FCOS (R50)  | 41.0  | 42.5 (+1.5%) | [link](https://drive.google.com/file/d/1aGA0eJwNZ0ceVt0UBi-sxkf4oEuwVsEu/view?usp=drive_link)  |
+| FCOS (R101)  | 43.1  | 44.1 (+1.0%)  | [link](https://drive.google.com/file/d/1Jy3QZSqmv68brYHWCrx9trsJHtqry2i6/view?usp=drive_link) |
+| DINO (R50)  | 49.2 | 50.5 (+1.3%)  |   |
 
 ## Config (detectron2/configs/DyRA)
 * WEIGHTS: the path of weights of the resizer must contain the "resizer"
