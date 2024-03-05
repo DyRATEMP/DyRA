@@ -61,11 +61,11 @@ class DynamicResizer(nn.Module):
         self.base_anchors = torch.tensor(base_anchors).to(self.device) ** 2
         self.coco_bnd = torch.tensor([32., 96.]).to(self.device) ** 2
         self.mapping_ratio = nn.Parameter((self.base_anchors[1::2]).mean() / self.coco_bnd.mean())
-        # self.mapping_ratio = nn.Parameter(torch.tensor([3.2]), requires_grad=False)
         self.anchor_range = [pareto_scale_st, pareto_scale_end]
         
         logger.info("Pareto Scale: {}".format(self.base_anchors[self.anchor_range[0]:self.anchor_range[1]].sqrt().tolist()))
-        
+
+        ## If you want faster training speed, use following codes
         # print("No parameter updating after {}th block".format(int(out_layer[0][-1])))
         # for idx, stage in enumerate(self.image_encoder.stages, start=int(out_layer[0][-1])+1):
         #     for block in stage.children():    block.freeze()
@@ -82,7 +82,7 @@ class DynamicResizer(nn.Module):
             "net": SimplePredictor(in_chan=15, device=cfg.MODEL.DEVICE,
                                    num_mlayer=cfg.MODEL.RESIZER.ENCODER.RES2_OUT_CHANNELS*4),
             "image_encoder": image_encoder,
-            "pareto_opt":True,
+            "pareto_opt": True,
             "out_layer": cfg.MODEL.RESIZER.ENCODER.OUT_FEATURES,
             "base_anchors": [32., 64., 128., 256., 512.], 
             "pareto_scale_st": cfg.MODEL.RESIZER.PARETO_SCALE_ST,
@@ -165,8 +165,11 @@ class DynamicResizer(nn.Module):
                 sc_losses.append(pareto_sc)
             else:
                 sc_losses.append(sc_loss)
-
-        return {"loss_ps": torch.stack(sc_losses, dim=0).mean()}
+        
+        if self.use_pareto_opt:
+            return {"loss_ps": torch.stack(sc_losses, dim=0).mean()}
+        else:
+            return {"loss_ps": torch.cat(sc_losses, dim=0).mean()}
     
     def balance_loss(self, box_sizes: List[torch.Tensor], loc_loss: torch.Tensor, reduction="mean"):
         if box_sizes.size()[-1] == 4:
