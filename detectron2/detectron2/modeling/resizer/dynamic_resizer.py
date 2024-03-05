@@ -5,7 +5,6 @@ from typing import List, Dict, Union
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-# from torchvision.models import regnet_x_400mf, RegNet_X_400MF_Weights
 
 from detectron2.config import configurable
 from detectron2.utils.events import get_event_storage
