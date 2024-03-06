@@ -1,6 +1,6 @@
 # DyRA (Dynamic Resolution Adjustment Network)
 * Companion NN for existing detectors
-* This project is built based on detectron2
+* This project was built based on detectron2
 
 ## Models (on COCO)
 * link - google drive
