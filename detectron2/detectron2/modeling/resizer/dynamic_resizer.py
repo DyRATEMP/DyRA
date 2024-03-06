@@ -22,7 +22,7 @@ __all__ = ["DynamicResizer"]
 
 
 def normalize(logits, tau=1):
-    weight = tau / torch.clamp(tau - logits.detach(), min=1e-12)
+    weight = tau / torch.clamp(tau - logits.detach(), min=1e-1)
     weight /= weight.sum(dim=-1).unsqueeze(dim=-1)
     return weight
 
