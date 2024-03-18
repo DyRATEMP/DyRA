@@ -26,7 +26,7 @@
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
   * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve more acc.
 * ENCODER: default setting - ResNet-18
-* ConstCosineLR: BASE_LR_END is setted BASE_LR_END/2 of baselines
+* ConstCosineLR: BASE_LR_END is set BASE_LR_END/2 of baselines
 
 ## How to plug into the network
 * Add DynamicResizer into the network attr.
