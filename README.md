@@ -1,9 +1,9 @@
-# DyRA (Dynamic Resolution Adjustment Network)
+# DyRA: Dynamic Resolution Adjustment Network
 * Companion NN for existing detectors
 * This project was built based on detectron2
 
 ## Models (on COCO)
-* download link - Google Drive
+* Download link - Google Drive
 
 | Networks | Baseline AP | AP with DyRA | Weights | 
 |---|---|---|---|
@@ -16,13 +16,13 @@
 | DINO (R50)*  | 49.0 | 50.5 (+1.5%)  |   |
 | H-deformable-detr (R50)*  | 48.6 | 49.8 (+1.2%)  |   |
 
-(*) : with AMP trainer
+(*) : trained with AMP trainer
 
 ## Config (detectron2/configs/DyRA)
-* WEIGHTS: the path of weights of the resizer must contain the "resizer"
+* WEIGHTS: path of weights of resizer must contain "resizer"
   * ex) "../outputs/resizer-R-18.pkl"
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
-* PARETO_SCALE_ST/END: define a range of the Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
+* PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
   * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve more acc.
 * ENCODER: default setting - ResNet-18
@@ -30,7 +30,7 @@
 
 ## How to plug into the network
 * Add DynamicResizer into the network attr.
-* Before the image processing,
+* Before image processing,
     * sf_dict: contains scale factors and ps_loss
 <pre>
   <code>
@@ -50,4 +50,4 @@ resizer_dict = self.resizer.balance_loss(gt_boxes, loss_box_reg)
 * Start training :)
 
 ## Commends
-* The same as the detectron2
+* Same as the detectron2
