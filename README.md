@@ -37,14 +37,14 @@ if self.resizer is not None:
   </code>
 </pre>
 * Compute balanceloss, such as,
-   * The "gt_boxes" must be one-to-one matched with the "loss_box_reg"
+   * "gt_boxes" must be one-to-one matched with "loss_box_reg"
 <pre>
   <code>
 resizer_dict = self.resizer.balance_loss(gt_boxes, loss_box_reg)
   </code>
 </pre>
 * Put sf_dict and resizer_dict in your final loss dictionary
-* Start Training!
+* Start training :)
 
 ## Commends
 * The same as the detectron2
