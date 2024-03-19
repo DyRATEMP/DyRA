@@ -14,7 +14,7 @@
 | FCOS (R50)  | 41.0  | 42.5 (+1.5%) | [link](https://drive.google.com/file/d/1aGA0eJwNZ0ceVt0UBi-sxkf4oEuwVsEu/view?usp=drive_link)  |
 | FCOS (R101)  | 43.1  | 44.1 (+1.0%)  | [link](https://drive.google.com/file/d/1Jy3QZSqmv68brYHWCrx9trsJHtqry2i6/view?usp=drive_link) |
 | DINO (R50)*  | 49.0 | 50.5 (+1.5%)  | [link](https://drive.google.com/file/d/1hRBgHbdf3FkZ5lHfbGYGLUky03HqwlrT/view?usp=sharing)  |
-| H-deformable-detr (R50)*  | 48.6 | 49.8 (+1.2%)  |   |
+| H-deformable-detr (R50)*  | 48.6 | 49.9 (+1.3%)  |   |
 
 (*) : trained with AMP trainer
 
