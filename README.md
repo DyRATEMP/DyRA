@@ -19,9 +19,10 @@
 (*) : trained with AMP trainer
 
 ## Config (detectron2/configs/DyRA)
-* WEIGHTS: path of weights of resizer must contain "resizer"
+* MODEL.RESIZER.WEIGHTS: path of weights of resizer must contain "resizer"
   * ex) "../outputs/resizer-R-18.pkl"
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
+  * If there is no RESIZER.WEIGHTS, the model will be trained without DyRA
 * PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
   * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve more acc.
