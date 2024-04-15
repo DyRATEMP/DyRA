@@ -20,18 +20,18 @@
 (*) : trained with AMP trainer
 
 ## Config (detectron2/configs/DyRA)
-* MODEL.RESIZER.WEIGHTS: a path of weights of resizer must contain "resizer"
+* MODEL.RESIZER.WEIGHTS: A path for pre-trained weights of the resizer must contain a "resizer" string
   * ex) "../outputs/resizer-R-18.pkl"
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
-  * If there is no RESIZER.WEIGHTS, the model will be trained without DyRA
+  * When without setting RESIZER.WEIGHTS, the model will be trained without DyRA
 * PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
-  * Pareto Opt.: effective when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve better accuracy
+  * Pareto Opt.: effective when multiple-sized objects are in the same scene / for some datasets, removing this optimality can help to achieve better accuracy
 * ENCODER: default setting - ResNet-18
-* ConstCosineLR: BASE_LR_END is set BASE_LR_END/2 of baselines
+* ConstCosineLR: BASE_LR_END is set to LastLR/2 of baselines
 
 ## How to plug into the network
-* Add DynamicResizer into the network attr.
+* Add DynamicResizer to the network attr.
 * Before image processing,
     * sf_dict: contains scale factors and ps_loss
 <pre>
