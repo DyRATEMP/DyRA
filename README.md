@@ -19,7 +19,7 @@
 (*) : trained with AMP trainer
 
 ## Config (detectron2/configs/DyRA)
-* MODEL.RESIZER.WEIGHTS: path of weights of resizer must contain "resizer"
+* MODEL.RESIZER.WEIGHTS: a path of weights of resizer must contain "resizer"
   * ex) "../outputs/resizer-R-18.pkl"
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
   * If there is no RESIZER.WEIGHTS, the model will be trained without DyRA
@@ -52,3 +52,7 @@ resizer_dict = self.resizer.balance_loss(gt_boxes, loss_box_reg)
 
 ## Commends
 * Same as the detectron2
+
+## Acknowledgement
+* [detectron2](https://github.com/facebookresearch/detectron2.git)
+* [detrex](https://github.com/IDEA-Research/detrex.git)
