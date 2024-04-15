@@ -54,5 +54,4 @@ resizer_dict = self.resizer.balance_loss(gt_boxes, loss_box_reg)
 * Same as the detectron2
 
 ## Acknowledgement
-* [detectron2](https://github.com/facebookresearch/detectron2.git)
-* [detrex](https://github.com/IDEA-Research/detrex.git)
+* [detectron2](https://github.com/facebookresearch/detectron2.git) / [detrex](https://github.com/IDEA-Research/detrex.git)
