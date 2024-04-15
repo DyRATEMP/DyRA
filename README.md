@@ -26,7 +26,7 @@
   * If there is no RESIZER.WEIGHTS, the model will be trained without DyRA
 * PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
-  * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve more acc.
+  * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve better accuracy
 * ENCODER: default setting - ResNet-18
 * ConstCosineLR: BASE_LR_END is set BASE_LR_END/2 of baselines
 
