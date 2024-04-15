@@ -1,4 +1,5 @@
 # DyRA: Dynamic Resolution Adjustment Network
+* [arxiv paper](https://arxiv.org/abs/2311.17098)
 * Companion NN for existing detectors
 * This project was built based on detectron2
 
