@@ -25,7 +25,6 @@ SOLVER:
 INPUT:
   MAX_SIZE_TRAIN: (1024,)
   MAX_SIZE_TEST: 1024
-  MIN_SIZE_TEST: 1024
 TEST:
   EVAL_PERIOD: 5000
 OUTPUT_DIR: "../outputs/dyra/dota/faster_rcnn_r_50_24ep"
