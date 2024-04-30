@@ -123,7 +123,8 @@ class RetinaNet(DRDetector):
         feature_shapes = [backbone_shape[f] for f in cfg.MODEL.RETINANET.IN_FEATURES]
         head = RetinaNetHead(cfg, feature_shapes)
         anchor_generator = build_anchor_generator(cfg, feature_shapes)
-        resizer = DynamicResizer(cfg)
+        if cfg.MODEL.RESIZER.WEIGHTS:    resizer = DynamicResizer(cfg)
+        else:    resizer = None
 
         return {
             "backbone": backbone,

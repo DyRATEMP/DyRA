@@ -1,4 +1,5 @@
 # DyRA: Dynamic Resolution Adjustment Network
+* [arxiv paper](https://arxiv.org/abs/2311.17098)
 * Companion NN for existing detectors
 * This project was built based on detectron2
 
@@ -19,17 +20,18 @@
 (*) : trained with AMP trainer
 
 ## Config (detectron2/configs/DyRA)
-* WEIGHTS: path of weights of resizer must contain "resizer"
+* MODEL.RESIZER.WEIGHTS: A path for pre-trained weights of the resizer must contain a "resizer" string
   * ex) "../outputs/resizer-R-18.pkl"
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
+  * When without setting RESIZER.WEIGHTS, the model will be trained without DyRA
 * PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
   * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
-  * Pareto Opt.: effective for when multiple-sized objects are in the same scene / for some dataset, removing this optimality can help to achieve more acc.
+  * Pareto Opt.: effective when multiple-sized objects are in the same scene / for some datasets, removing this optimality can help to achieve better accuracy
 * ENCODER: default setting - ResNet-18
-* ConstCosineLR: BASE_LR_END is set BASE_LR_END/2 of baselines
+* ConstCosineLR: BASE_LR_END is set to LastLR/2 of baselines
 
 ## How to plug into the network
-* Add DynamicResizer into the network attr.
+* Add DynamicResizer to the network attr.
 * Before image processing,
     * sf_dict: contains scale factors and ps_loss
 <pre>
@@ -51,3 +53,6 @@ resizer_dict = self.resizer.balance_loss(gt_boxes, loss_box_reg)
 
 ## Commends
 * Same as the detectron2
+
+## Acknowledgement
+* [detectron2](https://github.com/facebookresearch/detectron2.git) / [detrex](https://github.com/IDEA-Research/detrex.git)

@@ -75,7 +75,8 @@ class GeneralizedRCNN(nn.Module):
     @classmethod
     def from_config(cls, cfg):
         backbone = build_backbone(cfg)
-        resizer = DynamicResizer(cfg)
+        if cfg.MODEL.RESIZER.WEIGHTS:    resizer = DynamicResizer(cfg)
+        else:    resizer = None
         return {
             "backbone": backbone,
             "proposal_generator": build_proposal_generator(cfg, backbone.output_shape()),
