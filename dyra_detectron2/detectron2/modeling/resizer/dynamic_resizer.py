@@ -8,14 +8,12 @@ import torch.nn.functional as F
 
 from detectron2.config import configurable
 from detectron2.utils.events import get_event_storage
-from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.structures import ImageList, Boxes
 from detectron2.layers import cat
 
 from .match_predictor import SimplePredictor, bilinear_interpolation
 from ..anchor_generator import build_anchor_generator
 from ..backbone import build_backbone
-from ..box_regression import Box2BoxTransform
 from ..meta_arch import META_ARCH_REGISTRY
 
 __all__ = ["DynamicResizer"]
