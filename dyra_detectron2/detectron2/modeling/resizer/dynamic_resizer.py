@@ -62,7 +62,7 @@ class DynamicResizer(nn.Module):
         
         logger.info("Pareto Scale: {}".format(self.base_anchors[self.anchor_range[0]:self.anchor_range[1]].sqrt().tolist()))
 
-        ## If you want faster training speed, use the following code
+        ## if you want faster training speed, use the following code
         # print("No parameter updating after {}th block".format(int(out_layer[0][-1])))
         # for idx, stage in enumerate(self.image_encoder.stages, start=int(out_layer[0][-1])+1):
         #     for block in stage.children():    block.freeze()
@@ -91,7 +91,7 @@ class DynamicResizer(nn.Module):
     def forward(self, batched_inputs: List[Dict[str, torch.Tensor]], debug=False):
         sc_facs, size_deb = [], []
 
-        # For fatser inference, you can modify the code below to get scale factors in batch-wise
+        # for faster inference, you can modify the code below to get scale factors in batch-wise
         for i, x in enumerate(batched_inputs):
             img = self.preprocess_image(x)
             sc_sf = self.predictor(self.image_encoder(img.tensor)[self.out_feat[0]])
