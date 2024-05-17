@@ -63,7 +63,7 @@ class DynamicResizer(nn.Module):
         logger.info("Pareto Scale: {}".format(self.base_anchors[self.anchor_range[0]:self.anchor_range[1]].sqrt().tolist()))
 
         ## if you want faster training speed, use the following code
-        # print("No parameter updating after {}th block".format(int(out_layer[0][-1])))
+        # logger.info("No parameter updating after {}th block".format(int(out_layer[0][-1])))
         # for idx, stage in enumerate(self.image_encoder.stages, start=int(out_layer[0][-1])+1):
         #     for block in stage.children():    block.freeze()
         
