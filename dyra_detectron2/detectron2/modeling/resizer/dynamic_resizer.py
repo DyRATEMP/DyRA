@@ -90,7 +90,8 @@ class DynamicResizer(nn.Module):
     
     def forward(self, batched_inputs: List[Dict[str, torch.Tensor]], debug=False):
         sc_facs, size_deb = [], []
-        
+
+        # For fatser inference, you can modify the code below to get scale factors in batch-wise
         for i, x in enumerate(batched_inputs):
             img = self.preprocess_image(x)
             sc_sf = self.predictor(self.image_encoder(img.tensor)[self.out_feat[0]])
