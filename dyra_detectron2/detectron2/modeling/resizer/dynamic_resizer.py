@@ -110,7 +110,8 @@ class DynamicResizer(nn.Module):
             return dict(self.ps_loss(batched_inputs, sc_facs), **{"sf": sc_facs})
         else:
             return {"sf": sc_facs}
-    
+
+    # it is recommended to use norm=8 for anchor-based detectors while other uses norm=1
     def get_resized_inputs(self, factors, batched_inputs, norm=8):
         resized_inputs = []
         
