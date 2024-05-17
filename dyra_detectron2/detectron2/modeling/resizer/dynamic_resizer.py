@@ -1,5 +1,6 @@
 import logging
 import argparse, math, os, copy
+import numpy as np
 from typing import List, Dict, Union
 
 import torch
@@ -129,6 +130,7 @@ class DynamicResizer(nn.Module):
                 if "gt_boxes" in resized_inst["instances"]._fields:
                     resized_inst["instances"]._fields["gt_boxes"].tensor *= sf.item()    
 
+                ## segmentation is not supported in current code, the below code will make error
                 if "gt_masks" in resized_inst["instances"]._fields:
                     poly_annos = resized_inst["instances"]._fields["gt_masks"].polygons
                     poly_annos = [np.array([poly_lst[0] * sf.item()]) for poly_lst in poly_annos]
