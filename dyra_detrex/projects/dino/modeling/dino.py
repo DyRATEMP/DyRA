@@ -302,7 +302,7 @@ class DINO(nn.Module):
             loss_dict = self.criterion(output, targets, dn_meta, resizer=self.resizer, gt_sizes=gt_sizes)
             loc_val = [loss_dict[key].sum() for key in loss_dict if "box" in key or "iou" in key]
             sc_dict = {k: -((-torch.stack(loc_val)).exp()).prod().log().item()*sf_dict[k] for k in sf_dict}
-            # loss_dict.update(sf_dict)
+            loss_dict.update(sf_dict)
             weight_dict = self.criterion.weight_dict
             for k in loss_dict.keys():
                 if k in weight_dict:
