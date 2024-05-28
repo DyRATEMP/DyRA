@@ -25,8 +25,8 @@
   * Pretrained weights of R-18: [weight link](https://drive.google.com/file/d/1-mxrNicuyxWJcx3sc1j9PNv5i2l27BpM/view?usp=drive_link)
   * When without setting RESIZER.WEIGHTS, the model will be trained without DyRA
 * PARETO_SCALE_ST/END: define a range of Pareto Scale (base anchor sizes: [32, 64, 128, 256, 512] ** 2)
-  * Defaults: COCO - [32, 64 ]** 2, other datasets: all anchors
-  * Pareto Opt.: effective when multiple-sized objects are in the same scene / for some datasets, removing this optimality can help to achieve better accuracy
+  * If ST != END, Pareto OPT -> enabled, else MLE for all boxes
+  * Pareto OPT: effective when multiple-sized objects are in the same scene
 * ENCODER: default setting - ResNet-18
 * ConstCosineLR: BASE_LR_END is set to LastLR/2 of baselines
 
