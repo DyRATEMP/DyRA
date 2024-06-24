@@ -18,7 +18,7 @@
 | H-deformable-detr (R50)*  | 48.6 | 49.9 (+1.3%)  |  [link](https://drive.google.com/file/d/1jq0mmJDHM295ADssQF8651ZXt5QljEQw/view?usp=sharing) |
 
 * Lower accuracy for H-deformable-detr: due to the miss-implemented code
-* We'll publish new version of codes
+* We'll publish a modified version of code
 
 (*) : trained with AMP trainer
 
